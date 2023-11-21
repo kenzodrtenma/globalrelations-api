@@ -16,6 +16,11 @@ def generic_error(errors):
     print(errors.description)
     return jsonify({"errors": errors.description})
 
+@app.errorhandler(500)
+def internal_error(error):
+    print(error.description)
+    return jsonify({"errors": [error.description]})
+
 if __name__ == '__main__':
     app.run(debug=False)
     
