@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from payloads.get_relationship_payload import ValidateRelationshipPayload
 from payloads.payload import Payload
 from resources.relationship_get_resource import RelationshipGetResource
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:8080"}})
 
 @app.route("/")
 def get_relationship():
@@ -22,5 +24,5 @@ def internal_error(error):
     return jsonify({"errors": [error.description]})
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
     
