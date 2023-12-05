@@ -4,7 +4,7 @@ from openai import OpenAI
 class RelationshipGetResource(Resource):
     def __init__(self, data):
         Resource.__init__(self, data)
-        self.mock = True
+        self.mock = False
     
     def execute(self):
 
@@ -21,7 +21,7 @@ class RelationshipGetResource(Resource):
             model="gpt-4",
             messages=[
                 {"role": "system", "content": self.system_behavior},
-                {"role": "user", "content": f"Summarize in just one word the geopolitical relationship between the following countries: {self.data['first_country']} and {self.data['second_country']}. Give me just 1 word, and nothing more than that."},
+                {"role": "user", "content": f"Which adjective would best describe the relationship between the following countries: {self.data['first_country']} and {self.data['second_country']}. It should be a very peculiar word, very authentical, reply just with the adjective, and nothing more than this."},
             ]
         )
 
