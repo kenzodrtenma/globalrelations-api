@@ -1,5 +1,7 @@
 # globalrelations.com API
 
+<img src="images/globalrelations.png" style="width:100%;height: 360px;"/>
+
 This repository hosts an innovative API that allows users to explore and understand the relationships between two countries through a powerful integration with the ChatGPT API. The API provides a simple and intuitive interface, enabling developers and end-users to access detailed information about the relationship between the specified countries.
 
 **Key Features:**
