@@ -3,6 +3,7 @@ from flask_cors import CORS
 from payloads.get_relationship_payload import ValidateRelationshipPayload
 from payloads.payload import Payload
 from resources.relationship_get_resource import RelationshipGetResource
+from exceptions.country_exception import CountryException
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:8080"}})
@@ -22,6 +23,12 @@ def generic_error(errors):
 def internal_error(error):
     print(error.description)
     return jsonify({"errors": [error.description]})
+
+@app.errorhandler(CountryException)
+def handle_bad_request(e):
+    return jsonify({"errors": [
+        e.message
+    ]}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
