@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:8080"}})
 
 @app.route("/")
-def get_relationship():
+def get_relationship(): 
     request_data = Payload.format_request_data(request)
     ValidateRelationshipPayload(request_data).validate()
     return RelationshipGetResource(request_data).execute()

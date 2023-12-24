@@ -4,7 +4,7 @@ from openai import OpenAI
 class RelationshipGetResource(Resource):
     def __init__(self, data):
         Resource.__init__(self, data)
-        self.mock = False
+        self.mock = True
     
     def execute(self):
 
